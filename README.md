@@ -3,6 +3,10 @@
 ![buckets3](https://img.shields.io/badge/Cloud-AWS-green?style=flat&logo=amazonaws)
 
 
+![buckets3](https://img.shields.io/badge/Coding-PowerShell-green?style=flat&logo=buckets3)
+
+
+
 # Sitio web estatico en AWS BUCKET S3
 
 _Acá va un párrafo que describa lo que es el proyecto_
