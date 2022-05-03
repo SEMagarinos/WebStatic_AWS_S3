@@ -1,6 +1,7 @@
 # WebStatic_AWS_S3
- 
-![buckets3](https://img.shields.io/badge/Coding-PowerShell-green?style=flat&logo=powershell)
+
+![buckets3](https://img.shields.io/badge/Cloud-AWS-green?style=flat&logo=amazonaws)
+
 
 # Sitio web estatico en AWS BUCKET S3
 
