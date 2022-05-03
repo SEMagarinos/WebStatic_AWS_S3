@@ -8,7 +8,7 @@ _Acá va un párrafo que describa lo que es el proyecto_
 
 ### 📋| Pre-requisitos 
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+_Preparacion de Bucket S3 + CloudFront + Route53_
 
 ```
 Da un ejemplo
@@ -29,12 +29,12 @@ Configuración de bloqueo de acceso público para este bucket
 Desactivar el bloqueo de todo acceso público puede provocar que este bucket y los objetos que contiene se vuelvan públicos
 ```
 
-### 📋| Configurar _Bucket S3_
+### ⚙️| Configurar _Bucket S3_
 
 Configurar los permisos / policy para la utilizacion del Bucket S3
 Ejemplo:
 
-Edit **Bucket Policy** dentro de permisos del Bucket S3: _Recordar cambiar el nombre del bucket en la policy "webstaticsm"_
+**Bucket Policy** dentro de permisos del Bucket S3: _Recordar cambiar el nombre del bucket en la policy "webstaticsm"_
 ```
 {
     "Version": "2012-10-17",
@@ -106,85 +106,44 @@ Configurar *Reglas de redireccionamiento*
     
 </html>
 ```
+### 📋| Obtener URL PATH del _Bucket S3_
 
+Dentro del bucket s3 , en propiedades en el apartado **Alojamiento de sitios web estaticos**
 
-
-
-Mira **Deployment** para conocer como desplegar el proyecto.
-
-### 🔧| Instalación 
-
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
-
+Show the URL
 ```
-Da un ejemplo
+http://webstaticsm.s3-website-us-east-1.amazonaws.com
 ```
 
-_Y repite_
 
-```
-hasta finalizar
-```
+### 📋| Creacion del _CloudFront_
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+Configuracion de Nuevo CloudFront
 
-## ⚙️| Ejecutando las pruebas 
+**Origin Domain Name** = Nombre del bucket s3 o NLB.
+**View Protocol Policy** = Redirect HTTP to HTTPS.
+**Alternate Domain Name (CNAMEs)** = _webstaticsm.smg-re-argentina.com.ar_
+**Custom SSL** = Seleccionado uno existente del root _*.smg-re-argentina.com.ar (a81bb7c31b51-43eb-ba5e-055905eeab1c) _
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
+### 📄| Creacion de Route 53
 
-### 🔩| Analice las pruebas end-to-end 
+Para la configuracion de la zona y/o el alias de DNS correcto.
 
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### ⌨️| Las pruebas de estilo de codificación 
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## 📦| Despliegue
-
-_Agrega notas adicionales sobre como hacer deploy_
+**Nombre de DNS:** webstaticsm _.smg-re-argentina.com.ar_
+**Tildar Alias** Tildado
+**Redirigir trafico a:** _Alias de distribucion de CloudFront_
+**Seleccionar el :** _det17u9nsxzot.cloudfront.net_
 
 ## 🛠️| Construido con 
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
+* [Sebastian E. Magariños](http://www.linkedin.com/in/smagarinos)
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+## 📌| Version
 
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
+Version 1.0
 
 ## ✒️| Autores 
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
-
-## 📄| Licencia 
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## 🎁| Expresiones de Gratitud :D
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* Paypal
-
+_**Sebastián E. Magariños**_
 
 ---
