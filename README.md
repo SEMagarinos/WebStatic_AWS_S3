@@ -11,7 +11,7 @@
 
 _Acá va un párrafo que describa lo que es el proyecto_
 
-### 📋| Pre-requisitos 
+## 📋| Pre-requisitos 
 
 _Preparacion de Bucket S3 + CloudFront + Route53_
 
@@ -19,7 +19,7 @@ _Preparacion de Bucket S3 + CloudFront + Route53_
 Da un ejemplo
 ```
 
-### 🚀| Creacion de un _Bucket S3_
+## 🚀| Creacion de un _Bucket S3_
 
 
 Nombre de bucket:
@@ -34,7 +34,7 @@ Configuración de bloqueo de acceso público para este bucket
 Desactivar el bloqueo de todo acceso público puede provocar que este bucket y los objetos que contiene se vuelvan públicos
 ```
 
-### ⚙️| Configurar _Bucket S3_
+## ⚙️| Configurar _Bucket S3_
 
 Configurar los permisos / policy para la utilizacion del Bucket S3
 Ejemplo:
@@ -86,7 +86,7 @@ Configurar *Reglas de redireccionamiento*
 ```
 
 
-### 📋| Subir los archivos al _Bucket S3_
+## 📋| Subir los archivos al _Bucket S3_
 
 **Nombre: index.html**
 ```
@@ -111,7 +111,7 @@ Configurar *Reglas de redireccionamiento*
     
 </html>
 ```
-### 📋| Obtener URL PATH del _Bucket S3_
+## 📋| Obtener URL PATH del _Bucket S3_
 
 Dentro del bucket s3 , en propiedades en el apartado **Alojamiento de sitios web estaticos**
 
@@ -121,7 +121,7 @@ http://webstaticsm.s3-website-us-east-1.amazonaws.com
 ```
 
 
-### 📋| Creacion del _CloudFront_
+## 📋| Creacion del _CloudFront_
 
 Configuracion de Nuevo CloudFront
 
@@ -130,7 +130,7 @@ Configuracion de Nuevo CloudFront
 **Alternate Domain Name (CNAMEs)** = _webstaticsm.smg-re-argentina.com.ar_
 **Custom SSL** = Seleccionado uno existente del root _*.smg-re-argentina.com.ar (a81bb7c31b51-43eb-ba5e-055905eeab1c) _
 
-### 📄| Creacion de Route 53
+## 📄| Creacion de Route 53
 
 Para la configuracion de la zona y/o el alias de DNS correcto.
 
