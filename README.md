@@ -22,12 +22,9 @@ Da un ejemplo
 ## 🚀| Creacion de un _Bucket S3_
 
 
-Nombre de bucket:
-```
-webstaticsm
-```
+_Nombre de bucket_ : **webstaticsm**
+_Des-Seleccionar y aceptar el riesgo en el apartado:_ 
 
-_Des-Seleccionar y aceptar el riesgo en el apartado:_
 ```
 Configuración de bloqueo de acceso público para este bucket
 -
@@ -37,9 +34,9 @@ Desactivar el bloqueo de todo acceso público puede provocar que este bucket y l
 ## ⚙️| Configurar _Bucket S3_
 
 Configurar los permisos / policy para la utilizacion del Bucket S3
-Ejemplo:
+_Ejemplo_:
 
-**Bucket Policy** dentro de permisos del Bucket S3: _Recordar cambiar el nombre del bucket en la policy "webstaticsm"_
+**Bucket Policy**: dentro de permisos del Bucket S3: _Recordar cambiar el nombre del bucket en la policy "webstaticsm"_
 ```
 {
     "Version": "2012-10-17",
@@ -55,11 +52,10 @@ Ejemplo:
 }
 ```
 
-Configurar "Static Website Hosting" dentro de "Propiedades" del _Bucket S3_
-
+Configurar **Static Website Hosting** dentro de **Propiedades** del _Bucket S3_
 Habilitarlo tildando **"Enable"** 
-Configurar *Index Dcoument*
-Configurar *Reglas de redireccionamiento*
+Configurar **Index Dcoument**
+Configurar **Reglas de redireccionamiento**
 ```
 [
     {
