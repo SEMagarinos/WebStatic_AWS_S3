@@ -1,9 +1,9 @@
 # WebStatic_AWS_S3
 
-![buckets3](https://img.shields.io/badge/Cloud-AWS-green?style=flat&logo=amazonaws)
-
-
-![buckets3](https://img.shields.io/badge/Coding-PowerShell-green?style=flat&logo=buckets3)
+![aws](https://img.shields.io/badge/Cloud-AWS-green?style=flat&logo=amazonaws)
+![buckets3](https://img.shields.io/badge/Repositorio-BucketS3-red?style=flat&logo=amazons3)
+![cloudflare](https://img.shields.io/badge/WebServer-CloudFront-blue?style=flat&logo=cloudflare)
+![route53](https://img.shields.io/badge/DNS-Route53-yellow?style=flat&logo=amazon)
 
 
 
