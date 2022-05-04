@@ -1,4 +1,4 @@
-# Sitio estatico dentro de un Bucket S3.
+# Sitio estatico dentro de Amazon Web Service.
 
 Para la publicacion de sitios webs estaticos sin utilizar servidores de renderizado, se utilizaria un Bucket S3 con otros componentes para dicha publicacion.
 
