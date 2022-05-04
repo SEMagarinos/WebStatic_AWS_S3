@@ -117,7 +117,7 @@ Abrir consola de **Route 53**. [![Bucket Console](https://img.shields.io/badge/U
 **Redirigir trafico a** = `Alias de distribucion de CloudFront`
 **Seleccionar el** = `det17u9nsxzot.cloudfront.net`
 
-## 🛠️| Construido con 
+## 🛠️| Construido con 🔥
 
 * [Sebastian E. Magariños](http://www.linkedin.com/in/smagarinos)
 
@@ -128,5 +128,6 @@ Version 1.4
 ## ✒️| Autores 
 
 _**Sebastián E. Magariños**_
+
 
 ---
