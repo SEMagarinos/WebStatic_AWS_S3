@@ -19,14 +19,18 @@ Para la publicacion de sitios webs estaticos sin utilizar servidores de renderiz
 
 Abrir consola de AWS Bucket S3 y crear un nuevo bucket. [![Bucket Console](https://img.shields.io/badge/Url-Bucket_S3_Console-0078D7?logo=Microsoft-edge&logoColor=white)](https://s3.console.aws.amazon.com/s3/home)
 
-**Nombre de bucket:** `webstaticsm` 
+**Nombre de bucket:** `webstaticsm`
+
 **Dejar todo seleccionado / bloqueado**
 
 ### ⚙️| Configurar _Bucket S3_
 
 **Static Website Hosting** dentro de **Propiedades** del **_Bucket S3_** _(Abajo de todo)_
+
 Habilitarlo tildando `Habilitar`
+
 Configurar **Documento de Indice** `index.html` (o el archivo que se tiene como principal) 
+
 Configurar **Reglas de redireccionamiento** (Esto depende del proyecto o sitio)
 ```
 [
@@ -91,18 +95,26 @@ Configuracion de Nuevo CloudFront
 Abrir consola de **Aws CloudFront**. [![Bucket Console](https://img.shields.io/badge/Url-AWS_CloudFront-0078D7?logo=Microsoft-edge&logoColor=white)](https://console.aws.amazon.com/cloudfront/v3/home)
 
 
-
 **Origin Domain Name** = `Nombre del bucket s3 o ALB.`
+
 **View Protocol Policy** = `Redirect HTTP to HTTPS.`
+
 **Name** = _Recomendamos que sea acorde a la solucion_ `Se pone automatico`
+
 **S3 Bucket Access** = _Punto Importante_ `Yes use OAI (bucket can restrict access to only CloudFront`
+
 - **Dos Opciones:** `Crear nueva Identidad y/o utilizar una pre-armada`
+
 - **Tildar** `Si, Actualizar Bucket Policy` (Esto lo realizar automaticamente, se puede validar luego)
 
 **Alternate Domain Name (CNAMEs)** = _Segun dns que se piense usar_ `webstaticsm.smg-re-argentina.com.ar`
+
 **Custom SSL** = Seleccionado uno existente del root `*.smg-re-argentina.com.ar (a81bb7c31b51-43eb-ba5e-055905eeab1c)`
+
 **Default Root Object** = `index.html`
+
 **Descripcion** = `Se entiende que es Opcional pero es bueno aclarar que es este distribuidor, algo referente al mismo`
+
 
 **Finalizar con la Creacion del distribuidor**
 
@@ -113,9 +125,13 @@ Para la configuracion de la zona y/o el alias de DNS correcto.
 Abrir consola de **Route 53**. [![Bucket Console](https://img.shields.io/badge/Url-Route_53_Console-0078D7?logo=Microsoft-edge&logoColor=white)](https://console.aws.amazon.com/route53/home)
 
 **Nombre de DNS** = `webstaticsm.smg-re-argentina.com.ar`
+
 **Tildar Alias** = `Tildado`
+
 **Redirigir trafico a** = `Alias de distribucion de CloudFront`
+
 **Seleccionar el** = `det17u9nsxzot.cloudfront.net`
+
 
 ## 🛠️| Construido con 🔥
 
