@@ -1,61 +1,33 @@
-# WebStatic_AWS_S3
+# Sitio estatico dentro de un Bucket S3.
 
-![aws](https://img.shields.io/badge/Cloud-AWS-green?style=flat&logo=amazonaws)
-![buckets3](https://img.shields.io/badge/Repositorio-BucketS3-red?style=flat&logo=amazons3)
-![cloudflare](https://img.shields.io/badge/WebServer-CloudFront-blue?style=flat&logo=cloudflare)
-![route53](https://img.shields.io/badge/DNS-Route53-yellow?style=flat&logo=amazon)
-
-
-
-# Sitio web estatico en AWS BUCKET S3
-
-_Acá va un párrafo que describa lo que es el proyecto_
+Para la publicacion de sitios webs estaticos sin utilizar servidores de renderizado, se utilizaria un Bucket S3 con otros componentes para dicha publicacion.
 
 ## 📋| Pre-requisitos 
 
-_Preparacion de Bucket S3 + CloudFront + Route53_
+ ![aws](https://img.shields.io/badge/Cloud-AWS-green?style=flat&logo=amazonaws) La instalacion se realizara dentro de **_Amazon Web Service_** .
 
-```
-Da un ejemplo
-```
+![buckets3](https://img.shields.io/badge/Repositorio-BucketS3-red?style=flat&logo=amazons3), Se utilizara como repositorio de los documentos, html, csss, img, entre otros contenidos estaticos, un **Bucket S3** privado.
 
-## 🚀| Creacion de un _Bucket S3_
+![cloudfront](https://img.shields.io/badge/Distribuidor-CloudFront-blue?style=flat&logo=cloudflare), para la publicacion segurizada y con servicios de cache se utilizara **AWS CloudFront**
+
+![route53](https://img.shields.io/badge/DNS-Route53-yellow?style=flat&logo=amazon), para una mejor experiencia se utilizara un alias de **DNS en un Dominio Publico** para que el internauta acceda de forma directo o simple.
+
+![OAI](https://img.shields.io/badge/Identidad-OAI-cyan?style=flat&logo=GreenSock), para resguardar el _bucket s3_ se utilizara una identidad de **OAI** que se utiliza en **AWS CloudFront**.
 
 
-_Nombre de bucket_ : **webstaticsm**
-_Des-Seleccionar y aceptar el riesgo en el apartado:_ 
+### 🚀| Creacion de un _Bucket S3_
 
-```
-Configuración de bloqueo de acceso público para este bucket
--
-Desactivar el bloqueo de todo acceso público puede provocar que este bucket y los objetos que contiene se vuelvan públicos
-```
+Abrir consola de AWS Bucket S3 y crear un nuevo bucket. [![Bucket Console](https://img.shields.io/badge/Url-Bucket_S3_Console-0078D7?logo=Microsoft-edge&logoColor=white)](https://s3.console.aws.amazon.com/s3/home)
 
-## ⚙️| Configurar _Bucket S3_
+**Nombre de bucket:** `webstaticsm` 
+**Dejar todo seleccionado / bloqueado**
 
-Configurar los permisos / policy para la utilizacion del Bucket S3
-_Ejemplo_:
+### ⚙️| Configurar _Bucket S3_
 
-**Bucket Policy**: dentro de permisos del Bucket S3: _Recordar cambiar el nombre del bucket en la policy "webstaticsm"_
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::webstaticsm/*"
-        }
-    ]
-}
-```
-
-Configurar **Static Website Hosting** dentro de **Propiedades** del _Bucket S3_
-Habilitarlo tildando **"Enable"** 
-Configurar **Index Dcoument**
-Configurar **Reglas de redireccionamiento**
+**Static Website Hosting** dentro de **Propiedades** del **_Bucket S3_** _(Abajo de todo)_
+Habilitarlo tildando `Habilitar`
+Configurar **Documento de Indice** `index.html` (o el archivo que se tiene como principal) 
+Configurar **Reglas de redireccionamiento** (Esto depende del proyecto o sitio)
 ```
 [
     {
@@ -63,7 +35,7 @@ Configurar **Reglas de redireccionamiento**
             "HttpErrorCodeReturnedEquals": "403"
         },
         "Redirect": {
-            "HostName": "aws.md.md",
+            "HostName": "webstaticsm.smg-re-argentina.com.ar",
             "Protocol": "https",
             "ReplaceKeyPrefixWith": "#!/"
         }
@@ -73,67 +45,67 @@ Configurar **Reglas de redireccionamiento**
             "HttpErrorCodeReturnedEquals": "404"
         },
         "Redirect": {
-            "HostName": "aws.md.md",
+            "HostName": "webstaticsm.smg-re-argentina.com.ar",
             "Protocol": "https",
             "ReplaceKeyPrefixWith": "#!/"
         }
     }
 ]
 ```
+**Listo guardar configuracion**
 
+### 📋| Subir los archivos al _Bucket S3_
 
-## 📋| Subir los archivos al _Bucket S3_
+En este GitHub hay unos archivos de ejemplos con nombre de carpeta `example` que se podriam usar para validar acceso a imagenes etc.
 
-**Nombre: index.html**
+Codigo de `index.html` basico
+
 ```
 <!DOCTYPE html>
 <html lang="sp">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Sitio Web Estatico de Prueba</title>
-        <link rel="stylesheet" href="./style.css">
-        <link rel="icon" href="./favicon.ico" type="image/x-icon">
     </head>
     <body>
         <main>
             <h1>Bienvenido estamos probando el sitio estatico con un solo index.html</h1>
         </main>
-        <script src="index.js">
-
-        </script>
-        </body>
-    
+    </body>
 </html>
 ```
-## 📋| Obtener URL PATH del _Bucket S3_
+
+**Listo guardar configuracion**
+
+### 📋| Obtener URL PATH del _Bucket S3_
 
 Dentro del bucket s3 , en propiedades en el apartado **Alojamiento de sitios web estaticos**
 
-Show the URL
-```
-http://webstaticsm.s3-website-us-east-1.amazonaws.com
-```
+**Por ejemplo:** `http://webstaticsm.s3-website-us-east-1.amazonaws.com`
 
 
 ## 📋| Creacion del _CloudFront_
 
 Configuracion de Nuevo CloudFront
 
-**Origin Domain Name** = Nombre del bucket s3 o NLB.
-**View Protocol Policy** = Redirect HTTP to HTTPS.
-**Alternate Domain Name (CNAMEs)** = _webstaticsm.smg-re-argentina.com.ar_
-**Custom SSL** = Seleccionado uno existente del root _*.smg-re-argentina.com.ar (a81bb7c31b51-43eb-ba5e-055905eeab1c) _
+Abrir consola de **Aws CloudFront**. [![Bucket Console](https://img.shields.io/badge/Url-AWS_CloudFront-0078D7?logo=Microsoft-edge&logoColor=white)](https://console.aws.amazon.com/cloudfront/v3/home)
+
+**Origin Domain Name** = `Nombre del bucket s3 o NLB.`h
+**View Protocol Policy** = `hRedirect HTTP to HTTPS.`h
+**Alternate Domain Name (CNAMEs)** = `webstaticsm.smg-re-argentina.com.ar`
+**Custom SSL** = Seleccionado uno existente del root `*.smg-re-argentina.com.ar (a81bb7c31b51-43eb-ba5e-055905eeab1c)`
+**Default Root Object** = `index.html`
 
 ## 📄| Creacion de Route 53
 
 Para la configuracion de la zona y/o el alias de DNS correcto.
 
-**Nombre de DNS:** webstaticsm _.smg-re-argentina.com.ar_
-**Tildar Alias** Tildado
-**Redirigir trafico a:** _Alias de distribucion de CloudFront_
-**Seleccionar el :** _det17u9nsxzot.cloudfront.net_
+Abrir consola de **Route 53**. [![Bucket Console](https://img.shields.io/badge/Url-Route_53_Console-0078D7?logo=Microsoft-edge&logoColor=white)](https://console.aws.amazon.com/route53/home)
+
+**Nombre de DNS** = `webstaticsm.smg-re-argentina.com.ar`
+**Tildar Alias** = `Tildado`
+**Redirigir trafico a** = `Alias de distribucion de CloudFront`
+**Seleccionar el** = `det17u9nsxzot.cloudfront.net`
 
 ## 🛠️| Construido con 
 
@@ -141,7 +113,7 @@ Para la configuracion de la zona y/o el alias de DNS correcto.
 
 ## 📌| Version
 
-Version 1.0
+Version 1.4
 
 ## ✒️| Autores 
 
