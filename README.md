@@ -6,7 +6,7 @@ Para la publicacion de sitios webs estaticos sin utilizar servidores de renderiz
 
  ![aws](https://img.shields.io/badge/Cloud-AWS-green?style=flat&logo=amazonaws) La instalacion se realizara dentro de **_Amazon Web Service_** .
 
-![buckets3](https://img.shields.io/badge/Repositorio-BucketS3-red?style=flat&logo=amazons3), Se utilizara como repositorio de los documentos, html, csss, img, entre otros contenidos estaticos, un **Bucket S3** privado.
+![buckets3](https://img.shields.io/badge/Repositorio-BucketS3-red?style=flat&logo=amazons3), Se utilizara como repositorio de los documentos, html, css, img, entre otros contenidos estaticos, un **Bucket S3** privado.
 
 ![cloudfront](https://img.shields.io/badge/Distribuidor-CloudFront-blue?style=flat&logo=cloudflare), para la publicacion segurizada y con servicios de cache se utilizara **AWS CloudFront**
 
