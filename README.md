@@ -90,11 +90,21 @@ Configuracion de Nuevo CloudFront
 
 Abrir consola de **Aws CloudFront**. [![Bucket Console](https://img.shields.io/badge/Url-AWS_CloudFront-0078D7?logo=Microsoft-edge&logoColor=white)](https://console.aws.amazon.com/cloudfront/v3/home)
 
-**Origin Domain Name** = `Nombre del bucket s3 o NLB.`h
-**View Protocol Policy** = `hRedirect HTTP to HTTPS.`h
-**Alternate Domain Name (CNAMEs)** = `webstaticsm.smg-re-argentina.com.ar`
+
+
+**Origin Domain Name** = `Nombre del bucket s3 o ALB.`
+**View Protocol Policy** = `Redirect HTTP to HTTPS.`
+**Name** = _Recomendamos que sea acorde a la solucion_ `Se pone automatico`
+**S3 Bucket Access** = _Punto Importante_ `Yes use OAI (bucket can restrict access to only CloudFront`
+- **Dos Opciones:** `Crear nueva Identidad y/o utilizar una pre-armada`
+- **Tildar** `Si, Actualizar Bucket Policy` (Esto lo realizar automaticamente, se puede validar luego)
+
+**Alternate Domain Name (CNAMEs)** = _Segun dns que se piense usar_ `webstaticsm.smg-re-argentina.com.ar`
 **Custom SSL** = Seleccionado uno existente del root `*.smg-re-argentina.com.ar (a81bb7c31b51-43eb-ba5e-055905eeab1c)`
 **Default Root Object** = `index.html`
+**Descripcion** = `Se entiende que es Opcional pero es bueno aclarar que es este distribuidor, algo referente al mismo`
+
+**Finalizar con la Creacion del distribuidor**
 
 ## 📄| Creacion de Route 53
 
